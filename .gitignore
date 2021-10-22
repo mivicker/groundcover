@@ -1,4 +1,5 @@
 env
+/__pycache__/
 Dockerfile
 .dockerignore
 db.sqlite3
@@ -6,3 +7,4 @@ media/images/*
 media/original_images/*
 images/*
 .DS_store
+*.env
