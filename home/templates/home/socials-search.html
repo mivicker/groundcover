@@ -1,0 +1,13 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+<div class="socials">
+    {% for account in socials %} 
+    <div class="account">
+        {% image account.value.image max-25x25 as icon %}
+        <a href="{{ account.value.url }}"><img class="social-logo" src="{{ icon.url }}" width="{{ icon.width }}" height="auto" alt="{{ account.value.name }}"/></a>
+    </div>
+    {% endfor %}
+</div>
+<div class = "search">
+    <input type="text" />
+    <button><i class="fas fa-search"></i></button>
+</div>

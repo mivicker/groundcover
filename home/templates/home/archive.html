@@ -1,0 +1,26 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% block title %}Groundcover news{% endblock %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'home/spread_no-sidebar_7col.css' %}">
+    <link rel="stylesheet" href="{% static 'home/archive.css' %}">
+{% endblock %}
+
+{% block content %}
+{% include 'home/small-masthead.html' %}
+<div class="spread">
+    <div class="spread__body">
+        {% for entry in page.get_children %}
+        <div class="archive-entry">
+            {% image entry.specific.front_image original as entry_image %}
+            <a href="{{ entry.specific.pdf.url }}"><img class="archive-entry__image" src="{{ entry_image.url }}" /></a>
+            <div>            
+                <h2>{{ entry.title }}</h2>
+                <p>{{ entry.specific.tags }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,33 +1,23 @@
-{% extends "base.html" %}
+{% extends 'home/base.html' %}
 {% load static %}
-
 {% load wagtailcore_tags wagtailimages_tags %}
-
-{% block extra_css %}
-{% endblock extra_css %}
+{% block title %}Groundcover news{% endblock %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'home/spread_with-sidebar_5-2col.css' %}">
+    <link rel="stylesheet" href="{% static 'home/static_page.css' %}">
+{% endblock %}
 
 {% block content %}
-<div class="cf mt4 mh4">
-    <div class="fl w-70">
-      {% image parent.specific.logo max-300x75 as logo %}
-      <a href="{{ parent.url }}"><img src="{{ logo.url }}" width="{{ logo.width }}" height="{{ logo.height }}" alt="Groundcover: news and solutions from the bottom up"/></a>
+{% include 'home/small-masthead.html' %}
+<div class="spread">
+    <div class="socials-search">
+        {% include 'home/socials-search.html' %}
     </div>
-    <div class="fl w-30 tr">
-        <a href="https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=44BP4PSNVKWD4" class="ba bw1 pa2 br2 link dim gray black mr1" href="">Donate</a>
-        <a class="ba bw1 pa2 br2 link dim gray black" href="">Subscribe</a>
-  </div>
+    <div class="spread__body">
+    </div>
+    <div class="sidebar-bottom">
+        {% include 'home/twitter-stuff.html' %}
+    </div>
+    </div>
 </div>
-
-
-<article class="pa3 pa5-ns">
-    <h1 class="f2">{{ page.title }}</h1>
-
-    {% image page.specific.lead_image fill-450x330 class="w-100 f5 measure" %}          
-
-    {% for block in page.body %}
-    <p class="measure lh-copy">
-    {%include_block block%}
-    </p>
-    {% endfor %}
-  </article>
 {% endblock %}

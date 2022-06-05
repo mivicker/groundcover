@@ -1,0 +1,9 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+<div class="small-masthead">
+        <div class="small-logo">
+            {% image page.get_parent.specific.logo max-400x150 as logo %}
+            <a href="/"><img class="logo-pic" src="{{ logo.url }}" width="{{ logo.width }}" height="auto" alt="Groundcover" /></a>
+        </div>
+    {% include 'home/nav.html' %}
+</div>

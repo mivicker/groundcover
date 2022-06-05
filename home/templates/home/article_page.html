@@ -1,0 +1,42 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block title %}Groundcover news{% endblock %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'home/spread_no-sidebar_8col.css' %}">
+    <link rel="stylesheet" href="{% static 'home/article.css' %}">
+{% endblock %}
+
+{% block content %}
+{% include 'home/small-masthead.html' %}
+<div class="spread">
+    <div class="spread__body">
+        <div class="article__spread">
+            <div class="article__main-image">
+                <div class="fake-image"></div>
+                <div class="main-image__caption">
+                    <p>Here is a small caption that goes along with the above image. <span class="image-credit">| photo by Image Taker</span></p>
+                </div>
+            </div>
+            {% if page.section != None %}
+            {% endif %}
+            <div class="article__headline">
+                <h2>{{ page.title }}</h2>
+            </div>
+            <div class="byline">
+                <p>By {{ page.author }}</p>
+            </div>
+            <div class="article__body">
+                <p>Here is a paragraph of text and potentially an image that I'd like to use. In it, the player explores a vast cave system rumored to be filled with treasure and gold, by typing one- or two-word commands. These are interpreted by the game's natural language input system. The program acts as a narrator, describing the player's location and the results of the player's attempted actions. It is the first well-known example of interactive fiction, as well as the first well-known adventure game, for which it was also the namesake. The version by Woods expanded the game in size and increased the amount of fantasy elements present in it, such as a dragon and magic spells. Both versions were spread around the nascent ARPANET, the precursor to the Internet, and were very popular in the computer community.</p>
+                <p>The Graph API is the primary way to get data into and out of the Facebook platform. It's an HTTP-based API that apps can use to programmatically query data, post new stories, manage ads, upload photos, and perform a wide variety of other tasks. Here is a paragraph of text and potentially an image that I'd like to use.</p>
+            </div>
+            <div class="article__section">
+                <div class="article__section__badge" style="background-color: {{ theme_color }}; color: {{ theme_text }}">
+                    <p>{{ page.section.title }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

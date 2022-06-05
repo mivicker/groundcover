@@ -1,0 +1,13 @@
+<nav>
+    {% for static_page in static_pages %}
+        {% if static_page.specific.highlight %}
+            <div class="nav-highlight" style="background-color: {{ theme_color }}; color: {{ theme_text }}">
+                <p><a href="{{ static_page.url }}">{{ static_page.title }}</a></p>
+            </div>
+        {% else %}
+            <div>
+                <p><a href="{{ static_page.url }}">{{ static_page.title }}</a></p>
+            </div>
+        {% endif %}
+    {% endfor %}
+</nav>

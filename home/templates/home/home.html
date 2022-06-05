@@ -1,0 +1,48 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block title %}Groundcover news{% endblock %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'home/spread_with-sidebar_5-2col.css' %}">
+    <link rel="stylesheet" href="{% static 'home/home.css' %}">
+{% endblock %}
+
+{% block content %}
+{% include 'home/large-masthead.html' %}
+<div class="spread">
+    <div class="socials-search">
+        {% include 'home/socials-search.html' %}
+    </div>
+    <div class="spread__body">
+        <div class="article-main">
+            {% image page.specific.main_article.lead_image original as main_image %}
+            <img class="main-image" src="{{ main_image.url }}" max-width="auto" height="auto" alt="{{ main_image.alt }}" />
+            <h2>{{ page.specific.main_article.title }}</h2>
+            <p class="author">By <a href="{{ page.main_article.author.url }}">{{ page.main_article.author.name }}</a></p>
+            <p>{{ page.specific.main_article.lede }}</p>
+            <a href="{{ page.specific.main_article.url }}">read more</a>
+        </div>
+        <div class="article-left">
+            <h2>{{ page.specific.left_article.title }}</h2>
+            <p class="author">By <a href="{{ page.left_article.author.url }}">{{ page.main_article.author.name }}</a></p>
+            <p>{{ page.specific.left_article.lede }}</p>
+            <a href="{{ page.left_article.url }}">read more</a>
+        </div>
+        <div class="article-bottom">
+            {% image page.specific.bottom_article.lead_image original as bottom_image %}
+            <img class="bottom-image" src="{{ bottom_image.url }}" max-width="auto" height="auto" alt="{{ bottom_image.alt }}" />
+            <div class="bottom-text">
+                <h2>{{ page.specific.bottom_article.title }}</h2>
+                <p class="author">By <a href="{{ page.bottom_article.author.url }}">{{ page.main_article.author.name }}</a></p>
+                <p>{{ page.specific.bottom_article.lede }}</p>
+                <a href="{{ page.bottom_article.url }}">read more</a>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-bottom">
+        {% include 'home/twitter-stuff.html' %}
+    </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,31 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+<footer style="background-color: {{ theme_color }}; color: {{ theme_text }}">
+    <div class="footer__body">
+        <div class="address">
+            <div class="footer__logo">
+                {% image secondary_logo max-400x150 as logo %}
+                <img src="{{ logo.url }}" width="{{ logo.width }}" height="auto" alt="Groundcover" />
+            </div>
+            <div class="footer__address">
+                <p>2343 S Fourth St</p>
+                <p>Ann Arbor, MI</p>
+            </div>
+        </div>
+        <div class="phone">
+        <p>(734) 000-0000</p>
+        </div>
+        <div class="footer__socials">
+            {% for account in socials %}
+            <div class="account">
+                {% if invert_flag %}
+                    {% image account.value.invert_image max-25x25 as icon %}
+                {% else %}
+                    {% image account.value.image max-25x25 as icon %}
+                {% endif %}
+                <a href="{{ account.value.url }}"><img class="social-logo" src="{{ icon.url }}" width="auto" height="auto" /></a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</footer>

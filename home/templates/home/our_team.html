@@ -1,0 +1,41 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% block title %}Groundcover news{% endblock %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'home/spread_with-sidebar_5-2col.css' %}">
+    <link rel="stylesheet" href="{% static 'home/team.css' %}">
+{% endblock %}
+
+{% block content %}
+{% include 'home/small-masthead.html' %}
+<div class="spread">
+    <div class="socials-search">
+        {% include 'home/socials-search.html' %}
+    </div>
+    <div class="spread__body">
+        <div class="teammate-card">
+            <h2>Team member A</h2>
+        </div>
+        <div class="teammate-card">
+            <h2>Team member B</h2>
+        </div>
+        <div class="teammate-card">
+            <h2>Team member C</h2>
+        </div>
+        <div class="teammate-card">
+            <h2>Team member C</h2>
+        </div>
+        <div class="teammate-card">
+            <h2>Team member C</h2>
+        </div>
+        <div class="teammate-card">
+            <h2>Team member C</h2>
+        </div>
+    </div>
+    <div class="sidebar-bottom">
+        {% include 'home/twitter-stuff.html' %}
+    </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+.teammate-card {
+    border: 1px dotted gray;
+    border-radius: 4px;
+    padding: 1em;
+}
+
+.team-member-card__image {
+    min-height: 10em;
+    min-width: 8em;
+    background-color: lightgray;
+}
+
+@media (min-width: 60em) {
+    .teammate-card {
+        grid-column: span 2;
+        display: flex;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1em;
+    }
+}

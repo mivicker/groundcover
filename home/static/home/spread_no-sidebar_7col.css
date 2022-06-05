@@ -1,0 +1,10 @@
+@media (min-width: 60em) {
+    .spread {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .spread__body {
+        grid-template-columns: repeat(7, 1fr);
+    }
+}

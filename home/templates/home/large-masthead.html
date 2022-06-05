@@ -1,0 +1,22 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+<div class="masthead-nav">
+    <div class="large-masthead">
+        <div class="logo">
+            {% image page.logo max-400x150 as logo %}
+            <a href="/"><img class="logo-pic" src="{{ logo.url }}" width="{{ logo.width }}" height="auto" alt="Groundcover" /></a>
+        </div>
+        <!--<div class="tagline">
+            <p>NEWS AND SOLUTIONS FROM THE GROUND UP</p>
+        </div> -->
+        <div class="featured-vendor">
+            {% image page.featured_vendor max-400x400 as vendor %}
+            <img class="vendor-pic" src="{{ vendor.url }}" width="{{ vendor.width }}" height="auto" alt="image of featured vendor" />
+        </div>
+        <div class="featured-vendor__tag">
+            <h2 class="featured-vendor__phrase">Meet your vendor:</h2>
+            <h2 class="featured-vendor__name">Jay Gordon</h2>
+        </div>
+    </div>
+    {% include 'home/nav.html' %}
+</div>
