@@ -4,6 +4,7 @@ Dockerfile
 .dockerignore
 db.sqlite3
 media/images/*
+media/documents/*
 media/original_images/*
 images/*
 .DS_store
